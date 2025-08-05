@@ -136,3 +136,25 @@ def test_table_plaintext_min_width(
 
     assert isinstance(string, str)
     assert string == data("examples/plaintext/alignments-min-width-10.txt")
+
+
+def test_table_plaintext_empty(
+    headers: list[str], rows: list[list[object]], data: callable
+):
+    alignments = ["left", "center", "right"]
+
+    rows = []
+
+    table = Tabulicious(
+        headers=headers,
+        rows=rows,
+        format=Plaintext,  # this the the default so does not need to be specified
+        style="single",
+        alignments=alignments,
+        min_width=10,
+    )
+
+    string = table.string()
+
+    assert isinstance(string, str)
+    assert string == data("examples/plaintext/empty.txt")

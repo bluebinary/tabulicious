@@ -193,7 +193,7 @@ class Plaintext(Format):
         if alignments is None:
             pass
         elif isinstance(alignments, list):
-            if len(alignments) == len(self.table.columns):
+            if len(alignments) >= len(self.table.columns):
                 self._alignments: list[str] = []
                 for alignment in alignments:
                     if isinstance(alignment, str):
@@ -343,15 +343,20 @@ class Plaintext(Format):
         characters: dict[str, str] = self._characters()
 
         # Table Top Border/Separator
-        string = self._separator("top") + "\n"
+        string: str = self._separator("top") + "\n"
+
+        count: int = len(self.table.rows)
 
         # Table Header Row & Row Separator
-        if isinstance(self.table.headers, list):
+        if isinstance(self.table.headers, list) and len(self.table.headers) > 0:
             string += self._row(self.table.headers, header=True) + "\n"
-            string += self._separator("header", characters["hr"]) + "\n"
+
+            if count > 0:
+                string += self._separator("header", characters["hr"]) + "\n"
+            else:
+                string += self._separator("bottom", characters["hr"]) + "\n"
 
         # Table Row Columns & Row Separator
-        count: int = len(self.table.rows)
         for index, row in enumerate(self.table.rows, start=1):
             string += self._row(row) + "\n"
             string += self._separator("middle" if index < count else "bottom") + "\n"
