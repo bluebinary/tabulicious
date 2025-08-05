@@ -1,0 +1,41 @@
+x-volumes: &volumes
+  - ./README.md:/README.md
+  - ./documentation:/documentation
+  - ./source/tabulicious:/source/tabulicious
+  - ./source/tabulicious:/usr/local/lib/python/site-packages/tabulicious
+  - ./tests:/tests
+
+services:
+
+  black:
+    container_name: tabulicious-black
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    # image: tabulicious-black
+    environment:
+      - SERVICE=black
+    volumes:
+      *volumes
+
+  flakes:
+    container_name: tabulicious-flakes
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    # image: tabulicious-flakes
+    environment:
+      - SERVICE=flakes
+    volumes:
+      *volumes
+
+  tests:
+    container_name: tabulicious-tests
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    # image: tabulicious-tests
+    environment:
+      - SERVICE=tests
+    volumes:
+      *volumes
