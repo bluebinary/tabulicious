@@ -5,6 +5,7 @@ from tabulicious.formats import (
     HTML,
     Atlassian,
     GitHub,
+    Borderless,
 )
 
 
@@ -16,6 +17,7 @@ __all__ = [
     "HTML",
     "Atlassian",
     "GitHub",
+    "Borderless",
 ]
 
 

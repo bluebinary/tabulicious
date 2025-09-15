@@ -2,7 +2,7 @@ from tabulicious.formats import Format
 
 
 class GitHub(Format):
-    """The GitHub subclass generates tables using for use in GitHub issues and other
+    """The GitHub subclass generates tables for use in GitHub issues and other
     representations that support GitHub formatted tables, like GitHub pages."""
 
     _alignments: list[str] = None
@@ -28,11 +28,11 @@ class GitHub(Format):
 
                 for alignment in alignments:
                     if isinstance(alignment, str):
-                        if alignment in ["left", "center", "right"]:
+                        if alignment in ["left", "centre", "center", "right"]:
                             self._alignments.append(alignment)
                         else:
                             raise ValueError(
-                                "Each alignment value must be one of: 'left', 'center', 'right'!"
+                                "Each alignment value must be one of: 'left', 'centre' (or 'center'), 'right'!"
                             )
                     else:
                         raise TypeError(
@@ -78,7 +78,7 @@ class GitHub(Format):
             if self.alignments and len(self.alignments) > index:
                 if self.alignments[index] == "left":
                     string += " :--- |"
-                elif self.alignments[index] == "center":
+                elif self.alignments[index] in ["centre", "center"]:
                     string += " :---: |"
                 elif self.alignments[index] == "right":
                     string += " ---: |"

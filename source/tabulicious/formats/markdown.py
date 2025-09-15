@@ -2,7 +2,7 @@ from tabulicious.formats import Format
 
 
 class Markdown(Format):
-    """The Markdown subclass generates tables using for use in Markdown documents and
+    """The Markdown subclass generates tables for use in Markdown documents and
     other representations that support Markdown formatted text, including standard
     Markdown formatted tables."""
 
@@ -29,11 +29,11 @@ class Markdown(Format):
 
                 for alignment in alignments:
                     if isinstance(alignment, str):
-                        if alignment in ["left", "center", "right"]:
+                        if alignment in ["left", "centre", "center", "right"]:
                             self._alignments.append(alignment)
                         else:
                             raise ValueError(
-                                "Each alignment value must be one of: 'left', 'center', 'right'!"
+                                "Each alignment value must be one of: 'left', 'centre' (or 'center'), 'right'!"
                             )
                     else:
                         raise TypeError(
@@ -79,7 +79,7 @@ class Markdown(Format):
             if self.alignments and len(self.alignments) > index:
                 if self.alignments[index] == "left":
                     string += " :-- |"
-                elif self.alignments[index] == "center":
+                elif self.alignments[index] in ["centre", "center"]:
                     string += " :-: |"
                 elif self.alignments[index] == "right":
                     string += " --: |"
