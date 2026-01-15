@@ -4,7 +4,7 @@ import math
 
 
 class Plaintext(Format):
-    """The Plaintext subclass generates tables using for use in plaintext cases where a
+    """The Plaintext subclass generates tables for use in plaintext cases where a
     monospaced font can be used such as documentation and the command line."""
 
     _styles: dict[str, dict[str, str]] = {
@@ -197,11 +197,11 @@ class Plaintext(Format):
                 self._alignments: list[str] = []
                 for alignment in alignments:
                     if isinstance(alignment, str):
-                        if alignment in ["left", "center", "right"]:
+                        if alignment in ["left", "centre", "center", "right"]:
                             self._alignments.append(alignment)
                         else:
                             raise ValueError(
-                                "Each alignment value must be one of: 'left', 'center', 'right'!"
+                                "Each alignment value must be one of: 'left', 'centre' (or 'center') or 'right'!"
                             )
                     else:
                         raise TypeError(
@@ -233,7 +233,7 @@ class Plaintext(Format):
         if separator is None:
             separator = characters["hr"]
 
-        table = ""
+        table: str = ""
 
         if position == "top":
             table += characters["tl"]  # "╔"
@@ -296,7 +296,7 @@ class Plaintext(Format):
                     table += value[0 : (self._widths[index] - 1)] + "…"
                 else:
                     table += value
-            elif self._alignments[index] == "center":
+            elif self._alignments[index] in ["centre", "center"]:
                 if length < self._widths[index]:
                     lendiff = self._widths[index] - length
                     lenhalf = math.ceil(lendiff / 2)

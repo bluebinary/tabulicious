@@ -216,24 +216,28 @@ Which when rendered as HTML, will look like the following:
 The Tabulicious library currently provides the following formatter subclasses which can]
 be used to generate text-based tables of the relevant format:
 
-| Formatter   | Format                     | Notes                                    |
-| :---------- | :------------------------- | :--------------------------------------- |
-| `Plaintext` | Plaintext formatted tables | The `Plaintext` formatter is the default |
-| `Markdown`  | Markdown formatted tables  |                                          |
-| `HTML`      | HTML formatted tables      |                                          |
-| `Atlassian` | Atlassian formatted tables | For Jira tickets, Confluence pages, etc  |
+| Formatter    | Format                     | Notes                                    |
+| :----------- | :------------------------- | :--------------------------------------- |
+| `Plaintext`  | Plaintext formatted tables | The `Plaintext` formatter is the default |
+| `Markdown`   | Markdown formatted tables  |                                          |
+| `HTML`       | HTML formatted tables      | Simple HTML formatted tables             |
+| `Atlassian`  | Atlassian formatted tables | For Jira tickets, Confluence pages, etc  |
+| `GitHub`     | GitHub formatted tables    | For GitHub README, issues, pages, etc    |
+| `Borderless` | Borderless text tables     | For plain text, borderless tables        |
 
 #### Plaintext Formatter
 
-The Plaintext formatter offers the following configuration options:
+The Plaintext formatter offers the following optional configuration options:
 
- * style (control over the border and header styling)
- * minimum column width (number of characters)
- * maximum column width (number of characters)
- * fixed column widths (number of characters)
- * column alignments
+ * `style` (`str`) – the `style` argument supports setting the desired border style for the table, specified from one of the available options noted in the border styles section below; if no `style` argument is specified, the library defaults to the `single` border style;
+ * `bolding` (`bool`) – the `bolding` argument supports setting whether the header row should be rendered with bolded text or not (supported when the table is rendered in most command line shells);
+ * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
+ * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
+ * `max_width` (`int`) – the `max_width` argument supports setting the maximum column width (number of characters) for all columns;
+ * `widths` (`list[int]`) – the `widths` argument supports setting fixed column widths for each column, as the maximum number of characters that can appear in each column (aside from those needed for padding or border characters);
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
 
-The Plaintext formatter offers the following styles:
+The Plaintext formatter offers the following border styles:
 
 | Style  | Description                                                              |
 | :----- | :----------------------------------------------------------------------- |
@@ -307,15 +311,24 @@ The `curved` style will generate tables similar to the following with curved bor
 
 #### Markdown Formatter
 
-The Markdown formatter offers the following configuration options:
+The Markdown formatter offers the following optional configuration options:
 
- * column alignments
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
+
 
 #### HTML Formatter
 
-The HTML formatter offers the following configuration options:
+The HTML formatter offers the following optional configuration options:
 
- * column alignments
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
+
+
+#### Atlassian Formatter
+
+The Atlassian formatter offers the following optional configuration options:
+
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
+
 
 #### Atlassian Formatter: Examples
 
@@ -327,6 +340,42 @@ The `Atlassian` subclass will generate tables similar to the following:
 | Column 2A | Column 2B | Column 2C |
 ```
 
+#### GitHub Formatter
+
+The GitHub formatter offers the following optional configuration options:
+
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
+
+#### GitHub Formatter: Examples
+
+The `GitHub` subclass will generate tables similar to the following:
+
+```text
+| Header 1 | Header 2 | Header 3 |
+| --- | --- | --- |
+| Column 1A | Column 1B | Column 1C |
+| Column 2A | Column 2B | Column 2C |
+```
+
+#### Borderless Formatter
+
+The Borderless formatter offers the following optional configuration options:
+
+ * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
+ * `spacing` (`int` | `tuple[int]`) – the `spacing` argument supports setting the spacing between columns (number of characters);
+ * `padding` (`int` | `tuple[int]`) – the `padding` argument support setting the padding between columns (number of characters);
+ * `ellipses` (`bool`) – the `ellipses` argument supports setting whether ellipses should appear between the first and second columns.
+ 
+#### Borderless Formatter: Examples
+
+The `Borderless` subclass will generate tables similar to the following:
+
+```text
+Header 1    Header 2    Header 3
+Column 1A   Column 1B   Column 1C
+Column 2A   Column 2B   Column 2C
+```
+
 ### Copyright & License Information
 
-Copyright © 2025 Daniel Sissman; licensed under the MIT License.
+Copyright © 2025-2026 Daniel Sissman; licensed under the MIT License.

@@ -2,7 +2,7 @@ from tabulicious.formats import Format
 
 
 class HTML(Format):
-    """The HTML subclass generates tables using for use in HTML documents and other
+    """The HTML subclass generates tables for use in HTML documents and other
     representations that support HTML formatted text."""
 
     _alignments: list[str] = None
@@ -35,11 +35,13 @@ class HTML(Format):
 
                 for alignment in alignments:
                     if isinstance(alignment, str):
-                        if alignment in ["left", "center", "right"]:
+                        if alignment in ["left", "centre", "center", "right"]:
+                            if alignment == "centre":
+                                alignment = "center"
                             self._alignments.append(alignment)
                         else:
                             raise ValueError(
-                                "Each alignment value must be one of: 'left', 'center', 'right'!"
+                                "Each alignment value must be one of: 'left', 'centre' (or 'center') or 'right'!"
                             )
                     else:
                         raise TypeError(

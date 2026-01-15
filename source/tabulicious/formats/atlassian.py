@@ -2,7 +2,7 @@ from tabulicious.formats import Format
 
 
 class Atlassian(Format):
-    """The Atlassian subclass generates tables using for use in Jira tickets and other
+    """The Atlassian subclass generates tables for use in Jira tickets and other
     representations that support Atlassian formatted tables, like Confluence pages."""
 
     _column_name: str = None
@@ -20,7 +20,7 @@ class Atlassian(Format):
             )
 
     def string(self) -> str:
-        """Generates a Atlassian formatted table similar to the following:
+        """Generates an Atlassian formatted table similar to the following:
 
         || Header 1 || Header 2 || Header 3 ||
         | Data 1A  | Data 2A  | Data 3A  |

@@ -4,6 +4,7 @@ from tabulicious.formats.markdown import Markdown
 from tabulicious.formats.html import HTML
 from tabulicious.formats.atlassian import Atlassian
 from tabulicious.formats.github import GitHub
+from tabulicious.formats.borderless import Borderless
 
 __all__ = [
     "Format",
@@ -12,4 +13,5 @@ __all__ = [
     "HTML",
     "Atlassian",
     "GitHub",
+    "Borderless",
 ]
