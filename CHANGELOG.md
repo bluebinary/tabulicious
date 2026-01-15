@@ -1,5 +1,9 @@
 # Tabulicious Library Change Log
 
+## [0.5.3] - 2026-01-14
+### Added
+- Improved support for borderless tables.
+
 ## [0.5.2] - 2025-09-15
 ### Added
 - Support for borderless tables.

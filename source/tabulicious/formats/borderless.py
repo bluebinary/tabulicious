@@ -125,7 +125,7 @@ class Borderless(Plaintext):
                 elif self._padding is True:
                     table += " " * self._spacing[0]
 
-                if self._separator and index == 0:
+                if self._separator and index == 0 and len(value.strip()) > 0:
                     table += self._separator
 
                 if self._padding is False:

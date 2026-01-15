@@ -378,4 +378,4 @@ Column 2A   Column 2B   Column 2C
 
 ### Copyright & License Information
 
-Copyright © 2025 Daniel Sissman; licensed under the MIT License.
+Copyright © 2025-2026 Daniel Sissman; licensed under the MIT License.

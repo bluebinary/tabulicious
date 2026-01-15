@@ -39,14 +39,14 @@ class Tabulicious(object):
 
         # Validate the provided rows argument, ensuring it has the expected type/value
         if not isinstance(rows, list):
-            raise TypeError("The 'data' argument must have a list value!")
+            raise TypeError("The 'rows' argument must have a list value!")
         else:
             columns: int = None
 
             for row in rows:
-                if not isinstance(row, list):
+                if not isinstance(row, (list, tuple, set)):
                     raise TypeError(
-                        "The 'rows' argument must reference a list of list values!"
+                        "The 'rows' argument must reference a list of list, tuple or set values!"
                     )
                 else:
                     if columns is None:
@@ -95,6 +95,17 @@ class Tabulicious(object):
         # Validate the optional format argument, ensuring it has the expected type/value
         if format is None:
             format = Plaintext
+        elif isinstance(format, str):
+            for name in __all__:
+                if name in [self.__class__.__name__, "Format"]:
+                    continue
+                elif format.lower() == name.lower() and name in globals():
+                    format = globals()[name]
+                    break
+            else:
+                raise ValueError(
+                    "The 'format' argument is invalid; must reference a valid format by name or class type!"
+                )
         elif issubclass(format, Format) and not format is Format:
             pass
         else:
