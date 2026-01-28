@@ -8,7 +8,6 @@ from tabulicious.formats import (
     Borderless,
 )
 
-
 __all__ = [
     "Tabulicious",
     "Format",

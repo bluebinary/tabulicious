@@ -213,7 +213,7 @@ Which when rendered as HTML, will look like the following:
 <a name='formatters'></a>
 ### Formatters
 
-The Tabulicious library currently provides the following formatter subclasses which can]
+The Tabulicious library currently provides the following formatter subclasses which can
 be used to generate text-based tables of the relevant format:
 
 | Formatter    | Format                     | Notes                                    |
