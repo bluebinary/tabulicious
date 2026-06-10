@@ -6,8 +6,7 @@ Markdown and HTML.
 
 ### Requirements
 
-The Tabulicious library has been tested to work with Python 3.10, 3.11, 3.12 and 3.13,
-but has not been tested, nor is its use supported with earlier versions of Python.
+The Tabulicious library has been tested to work with Python 3.10, 3.11, 3.12, 3.13 and 3.14, but has not been tested, nor is its use supported with earlier versions of Python.
 
 ### Installation
 
@@ -231,7 +230,6 @@ The Plaintext formatter offers the following optional configuration options:
 
  * `style` (`str`) – the `style` argument supports setting the desired border style for the table, specified from one of the available options noted in the border styles section below; if no `style` argument is specified, the library defaults to the `single` border style;
  * `bolding` (`bool`) – the `bolding` argument supports setting whether the header row should be rendered with bolded text or not (supported when the table is rendered in most command line shells);
- * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
  * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
  * `max_width` (`int`) – the `max_width` argument supports setting the maximum column width (number of characters) for all columns;
  * `widths` (`list[int]`) – the `widths` argument supports setting fixed column widths for each column, as the maximum number of characters that can appear in each column (aside from those needed for padding or border characters);

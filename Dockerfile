@@ -1,5 +1,3 @@
-# syntax = docker/dockerfile:1.4.0
-
 ################################# [Base Python Image] ##################################
 
 # Allow the Python version to be specified as a build argument, with a preferred default
