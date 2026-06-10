@@ -6,8 +6,7 @@ Markdown and HTML.
 
 ### Requirements
 
-The Tabulicious library has been tested to work with Python 3.10, 3.11, 3.12 and 3.13,
-but has not been tested, nor is its use supported with earlier versions of Python.
+The Tabulicious library has been tested to work with Python 3.10, 3.11, 3.12, 3.13 and 3.14, but has not been tested, nor is its use supported with earlier versions of Python.
 
 ### Installation
 
