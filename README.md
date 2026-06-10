@@ -232,7 +232,6 @@ The Plaintext formatter offers the following optional configuration options:
  * `style` (`str`) – the `style` argument supports setting the desired border style for the table, specified from one of the available options noted in the border styles section below; if no `style` argument is specified, the library defaults to the `single` border style;
  * `bolding` (`bool`) – the `bolding` argument supports setting whether the header row should be rendered with bolded text or not (supported when the table is rendered in most command line shells);
  * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
- * `min_width` (`int`) – the `min_width` argument supports setting the minimum column width (number of characters) for all columns;
  * `max_width` (`int`) – the `max_width` argument supports setting the maximum column width (number of characters) for all columns;
  * `widths` (`list[int]`) – the `widths` argument supports setting fixed column widths for each column, as the maximum number of characters that can appear in each column (aside from those needed for padding or border characters);
  * `alignments` (`list[str]`) – the `alignments` argument supports setting column alignments for each column, specified as a `list` of `str` values, one for each column, from the following options: `left`, `centre` (or `center`), and `right`.
